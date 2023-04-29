@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using ProtocolBuilder.Generator;
 
 namespace ProtocolBuilder
 {
@@ -23,9 +24,11 @@ namespace ProtocolBuilder
                 return sb.ToString();
 
             var root = xml_doc.GetElementsByTagName("packet");
-            gen = new CPPGenerator();
+            gen = new CSharpGenerator();
 
+            sb.AppendLine(gen.Start);
             Parsing(sb, root[0].ChildNodes);
+            sb.Append(gen.End);
 
             return sb.ToString();
         }

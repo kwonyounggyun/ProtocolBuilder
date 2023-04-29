@@ -4,8 +4,6 @@ using System.IO;
 using System.Text;
 using System.Xml;
 
-Console.WriteLine("Hello, World!");
-
 
 var str = XMLReader.Parsing("D:\\Test.xml");
 Console.WriteLine(str);
